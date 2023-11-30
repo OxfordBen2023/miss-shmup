@@ -51,16 +51,16 @@ class Bulet(pygame.sprite.Sprite):
 	def __init__(self,emit):
 		super().__init__()
 		self.image = pygame.Surface([7, 7])
-		self.image.fill((255,255,255))
+		self.image.fill((254,233,161))
 		self.rect = self.image.get_rect(center = (emit))
-	
+
 	def shoot_forward(self):
 		self.rect.x += 20
-	
+
 	def update(self):
 		self.shoot_forward()
 		self.destroy()
-		
+
 	def destroy(self):
 		if self.rect.x < 0 or self.rect.x >800 or self.rect.y < 0 or self.rect.y > 400 :
 			self.kill()
@@ -72,14 +72,14 @@ class Enemy(pygame.sprite.Sprite):
 		self.image.fill((180,220,180))
 		self.rect = self.image.get_rect(center = (emit))
 		self.speed = speed
-	
+
 	def moove(self):
 		self.rect.x -= self.speed
 
 	def update(self):
 		self.destroy()
 		self.moove()
-		
+
 	def destroy(self):
 		if self.rect.x < 0 or self.rect.x >800 or self.rect.y < 0 or self.rect.y > 400 :
 			self.kill()
@@ -91,11 +91,11 @@ class Impact(pygame.sprite.Sprite):
 		self.image.fill((255,255,255))
 		self.rect = self.image.get_rect(center = (emit))
 		self.age = 0
-	
+
 	def update(self):
 		self.destroy()
 		self.age += 0.5
-		
+
 	def destroy(self):
 		if self.rect.x < 0 or self.rect.x >800 or self.rect.y < 0 or self.rect.y > 400 :
 			self.kill()
@@ -135,9 +135,9 @@ while True:
             exit()
         if	event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE :
             bulet_group.add(Bulet(player.sprite.rect.center))
-	
+
     screen.blit(sky_surface,(0,0))
-	
+
     for bulet in bulet_group:
         block_hit_list = pygame.sprite.spritecollide(bulet, enemy_group, True)
         if block_hit_list:
@@ -151,7 +151,7 @@ while True:
 
     bulet_group.draw(screen)
     bulet_group.update()
-    
+
     impact_group.draw(screen)
     impact_group.update()
 
