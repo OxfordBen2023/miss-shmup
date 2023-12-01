@@ -1,11 +1,10 @@
-from src.Config import Config
+from src.Config import *
 from src.Utils.TextUtil import TextUtil
 import pygame
 
 class Pause():
 
 	def __init__(self, view, screen):
-		self.config = Config
 		self.text = TextUtil()
 		self.selected = 0
 		self.screen = screen
@@ -18,8 +17,8 @@ class Pause():
 	def run(self, pygame):
 		run = True
 		while run:
-			self.screen.fill(self.config.MENU_BG_COLOR)
-			self.text.write(self.screen, "PAUSED !", self.config.MENU_DEFAULT_TEXT_COLOR , 90, 50,  50)
+			self.screen.fill(MENU_BG_COLOR)
+			self.text.write(self.screen, "PAUSED !", MENU_DEFAULT_TEXT_COLOR , 90, 50,  50)
 
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:

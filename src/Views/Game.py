@@ -5,7 +5,7 @@ from src.Player import Player
 from src.Enemy import Enemy
 from src.Bullet import Bullet
 from src.Impact import Impact
-from src.Config import Config
+from src.Config import *
 
 class Game():
 
@@ -60,7 +60,7 @@ class Game():
 			clock = pygame.time.Clock()
 
 			# Unused var "font" ?
-			font = pygame.font.Font(Config.FONT_DEFAULT , 50)
+			font = pygame.font.Font(FONT_DEFAULT , 50)
 			sky_surface = pygame.image.load('assets/graphics/starSky.png').convert()
 
 			self.screen.blit(sky_surface,(0,0))

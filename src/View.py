@@ -10,7 +10,7 @@ from src.Views.Game import Game
 from src.Views.Menu import Menu
 from src.Views.Pause import Pause
 
-from .Config import Config
+from .Config import *
 
 # This class is responsible of view switching
 # It contains screen object
@@ -23,7 +23,6 @@ class View():
 	def __init__(self, resolutionX, resolutionY):
 		pygame.init()
 		self.screen = pygame.display.set_mode((resolutionX,resolutionY))
-		pygame.display.set_caption('My Shmup')
 
 	def getActualView(self):
 		return self.view

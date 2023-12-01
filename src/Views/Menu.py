@@ -1,18 +1,18 @@
-from src.Config import Config
+from src.Config import *
 from src.Utils.TextUtil import TextUtil
+from sys import exit
 
 import pygame
 
 class Menu():
 
 	def __init__(self, view, screen):
-		self.config = Config
 		self.text = TextUtil()
 		self.selected = 0
 		self.screen = screen
 		self.view = view
 		self.menu = ['Start', 'Quit']
-		print(self)
+		#print(self)
 		pygame.display.set_caption('My Shmup - Menu')
 
 
@@ -24,16 +24,16 @@ class Menu():
 		positionY = startY
 		# Begin menu building
 		for index, choice in enumerate(self.menu) :
-			color = self.config.MENU_DEFAULT_TEXT_COLOR
+			color = MENU_DEFAULT_TEXT_COLOR
 			if index == self.selected:
-				color =  self.config.MENU_SELECTED_TEXT_COLOR
+				color =  MENU_SELECTED_TEXT_COLOR
 			self.text.write(self.screen, choice, color , fontSize, 50,  positionY)
 			positionY += spacing
 
 	def run(self, pygame):
 		run = True
 		while run:
-			self.screen.fill(self.config.MENU_BG_COLOR)
+			self.screen.fill(MENU_BG_COLOR)
 
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
@@ -60,6 +60,7 @@ class Menu():
 							self.view.call(self.view.VIEW_GAME)
 						if self.selected == 1 :
 							pygame.quit()
+							exit()
 			self.build_menu()
 
 			pygame.display.update()
