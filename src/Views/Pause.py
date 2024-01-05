@@ -2,8 +2,7 @@ from src.Config import *
 from src.Utils.TextUtil import TextUtil
 import pygame
 
-class Pause():
-
+class Pause:
 	def __init__(self, view, screen):
 		self.text = TextUtil()
 		self.selected = 0

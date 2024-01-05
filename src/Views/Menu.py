@@ -4,15 +4,13 @@ from sys import exit
 
 import pygame
 
-class Menu():
-
+class Menu:
 	def __init__(self, view, screen):
 		self.text = TextUtil()
 		self.selected = 0
 		self.screen = screen
 		self.view = view
-		self.menu = ['Start', 'Quit']
-		#print(self)
+		self.menu = ['Restart', 'Quit']
 		pygame.display.set_caption('My Shmup - Menu')
 
 
@@ -57,7 +55,7 @@ class Menu():
 					# Any menu element is selected
 					if event.key == pygame.K_RETURN:
 						if self.selected == 0 :
-							self.view.call(self.view.VIEW_GAME)
+							self.view.call("GAME")
 						if self.selected == 1 :
 							pygame.quit()
 							exit()

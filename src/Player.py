@@ -29,12 +29,6 @@ class Player(pygame.sprite.Sprite):
 		if keys[pygame.K_DOWN]:
 			self.rect.y += 4
 
-	def apply_gravity(self):
-		self.gravity += 1
-		self.rect.y += self.gravity
-		if self.rect.bottom >= 300:
-			self.rect.bottom = 300
-
 	def animation_state(self):
 		self.player_index += 0.1
 		if self.player_index >= len(self.player_walk):self.player_index = 0
@@ -42,5 +36,4 @@ class Player(pygame.sprite.Sprite):
 
 	def update(self):
 		self.player_input()
-		#self.apply_gravity()
 		self.animation_state()

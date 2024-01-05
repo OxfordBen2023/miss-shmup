@@ -1,3 +1,4 @@
+from src.Config import *
 import pygame
 
 class Enemy(pygame.sprite.Sprite):
@@ -16,5 +17,5 @@ class Enemy(pygame.sprite.Sprite):
 		self.moove()
 
 	def destroy(self):
-		if self.rect.x < 0 or self.rect.x >800 or self.rect.y < 0 or self.rect.y > 400 :
+		if self.rect.x < 0 or self.rect.x > RESOLUTION_X or self.rect.y < 0 or self.rect.y > RESOLUTION_Y :
 			self.kill()

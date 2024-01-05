@@ -1,3 +1,4 @@
+from src.Config import *
 import pygame
 
 class Impact(pygame.sprite.Sprite):
@@ -13,7 +14,7 @@ class Impact(pygame.sprite.Sprite):
 		self.age += 0.5
 
 	def destroy(self):
-		if self.rect.x < 0 or self.rect.x >800 or self.rect.y < 0 or self.rect.y > 400 :
+		if self.rect.x < 0 or self.rect.x > RESOLUTION_X or self.rect.y < 0 or self.rect.y > RESOLUTION_Y :
 			self.kill()
 		if self.age > 1:
 			self.kill()
